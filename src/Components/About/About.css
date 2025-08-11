@@ -1,0 +1,269 @@
+.about {
+  background-color: #0f0029; 
+  min-height: 90vh; 
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 80px 120px;
+  position: relative;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes underlineExpand {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Animate title */
+.about-title {
+  width: 20%;
+  text-align: center;
+  margin-left: 43%;
+  position: relative;
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-title.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-title h1 {
+  font-size: 80px;
+  font-weight: 600;
+  margin: 0;
+  background: linear-gradient(45deg, #ffffff, #b19cd9, #ffffff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease-in-out infinite;
+  position: relative;
+}
+
+.about-title h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #DF8908, #B415FF, #DF8908);
+  border-radius: 2px;
+  animation: mainTitleUnderline 1.5s ease-out 0.8s forwards;
+}
+
+@keyframes mainTitleUnderline {
+  to {
+    width: 80%;
+  }
+}
+
+.title-underline {
+  display: none;
+}
+
+/* Animate about section */
+.about-section {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  width: 100%;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.about-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-left: -5%;
+}
+
+/* Animate image container */
+.image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
+  border-radius: 50%;
+  width: 570px;
+  height: 570px;
+  box-sizing: border-box;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.about-left img {
+  width: 550px;
+  height: 550px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.about-right {
+  flex: 1;
+}
+
+/* Animate paragraphs */
+.about-para {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-size: 22px;
+  font-weight: 400;
+  color: #e0e0e0;
+  line-height: 1.7;
+}
+
+.about-para p {
+  margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.about-para p:nth-child(1) {
+  animation-delay: 1.4s;
+}
+
+.about-para p:nth-child(2) {
+  animation-delay: 1.6s;
+}
+
+/* Animate achievements */
+.about-achievements {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1s;
+  margin-left: 10px;
+}
+
+.about-achievement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.5s ease;
+  cursor: default;
+}
+
+.about-achievement h1 {
+  font-size: 60px;
+  font-weight: 700;
+  background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.about-achievement p {
+  font-size: 22px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+.about-achievements hr {
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(264deg, #DF8908 -5.09%, #B415FF 106.28%);
+  border: none;
+  margin: 0 20px;
+}
+
+/* Hover scale on achievements */
+.about-achievement:hover {
+  transform: scale(1.12);
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 40px 20px; 
+    gap: 60px;          
+  }
+  
+  .about-title h1 {
+    font-size: clamp(32px, 6vw, 48px); 
+    line-height: 1.1;
+  }
+  
+  .about-section {
+    flex-direction: column;
+    gap: 40px; 
+    align-items: center; 
+  }
+  
+  .image-container {
+    width: 80vw;       
+    max-width: 320px;  
+    height: auto;      
+  }
+
+  .about-left{
+    margin-left: 2%;
+  }
+  
+  .about-left img {
+    width: 100%;  
+    height: auto; 
+    max-width: 300px;
+    border-radius: 10px; 
+  }
+  
+  .about-para {
+    font-size: clamp(16px, 4vw, 20px);
+    max-width: 600px;
+    text-align: center; 
+    margin: 0 auto;
+  }
+  
+  .about-achievements {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .about-achievements hr {
+    width: 60px;
+    height: 3px;
+    margin: 0 auto;
+    background-color: #000; 
+  }
+}
